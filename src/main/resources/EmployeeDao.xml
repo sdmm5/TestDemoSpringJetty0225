@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ptteng.dao.EmployeeDao">
+
+    <insert id="addEmployee" parameterType="com.ptteng.entity.Employee">
+        insert into users (name,salary,age) values (#{name},#{salary},#{age})
+    </insert>
+
+    <select id="getEmployeeById" resultType="com.ptteng.entity.Employee"
+            parameterType="int">
+        SELECT * FROM users WHERE id=#{id}
+    </select>
+
+    <update id="updateEmployee" parameterType="com.ptteng.entity.Employee">
+        update users set name=#{name},salary=#{salary},age=#{age} where id=#{id};
+    </update>
+
+    <delete id="deleteEmployee" parameterType="int">
+        delete from users where id=#{id}
+    </delete>
+
+    <select id="getAllEmployee" resultType="com.ptteng.entity.Employee">
+        select * from users
+    </select>
+
+</mapper>
